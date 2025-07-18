@@ -2,6 +2,10 @@ let number1 = 0;
 let operator = "";
 let number2 = 0;
 
+const buttons = document.querySelectorAll('button');
+const output = document.querySelector('.output');
+
+// #region operations
 function add (x, y){
     return x + y;
 };
@@ -20,6 +24,7 @@ function divide (x, y){
     else
         return "you cannot divide by 0!";
 }
+// #endregion
 
 function operate (number1, number2, operator){
     switch (operator) {
@@ -37,3 +42,19 @@ function operate (number1, number2, operator){
             break;    
     }
 }
+
+Array.from(buttons.forEach(button => {
+    button.addEventListener('click', event => {
+        if (event.target.id == 'calculate'){
+            if (output.textContent == '0'){
+                output.textContent = '0';
+            }
+        }
+        else{
+            output.textContent += event.target.textContent; 
+        } 
+        if (event.target.id == 'clear'){
+            output.textContent = '0';
+        }     
+    })
+}))
