@@ -36,7 +36,7 @@ function operate (number1, number2, operator){
             return add(number1, number2)
         case "-":
             return subtract(number1, number2)
-        case "*":
+        case "×":
             return multiply(number1, number2)
         case "/":
             return divide(number1, number2)    
