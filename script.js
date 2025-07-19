@@ -1,6 +1,8 @@
-let number1 = 0;
-let operator = "";
-let number2 = 0;
+let number1 = '';
+let operator = '';
+let number2 = '';
+let result = null;
+let isResultDispalyed = false;
 
 const buttons = document.querySelectorAll('button');
 const output = document.querySelector('.output');
@@ -10,7 +12,7 @@ function add (x, y){
     return x + y;
 };
 
-function substract (x, y){
+function subtract (x, y){
     return x - y;
 };
 
@@ -27,34 +29,74 @@ function divide (x, y){
 // #endregion
 
 function operate (number1, number2, operator){
+    number1 = Number(number1);
+    number2 = Number(number2);
     switch (operator) {
         case "+":
-            add(number1, number2)
-            break;
+            return add(number1, number2)
         case "-":
-            substract(number1, number2)
-            break;
+            return subtract(number1, number2)
         case "*":
-            multiply(number1, number2)
-            break;
+            return multiply(number1, number2)
         case "/":
-            divide(number1, number2)
-            break;    
+            return divide(number1, number2)    
     }
 }
 
-Array.from(buttons.forEach(button => {
+buttons.forEach(button => {
     button.addEventListener('click', event => {
-        if (event.target.id == 'calculate'){
-            if (output.textContent == '0'){
-                output.textContent = '0';
-            }
-        }
-        else{
-            output.textContent += event.target.textContent; 
-        } 
-        if (event.target.id == 'clear'){
-            output.textContent = '0';
-        }     
+        calculate(event.target)
     })
-}))
+});
+
+function calculate (button) {
+    const value = button.textContent;
+    
+    if (button.id === 'clear'){
+        number1 = '';
+        number2 = '';
+        operator = '';
+        result = null;
+        output.textContent = '0';
+        return;
+    }
+
+    if (button.className === 'digit'){
+        if (operator === ''){
+            if (isResultDispalyed){
+                number1 = value;
+                isResultDispalyed = false;
+            } else {
+                number1 += value;
+            }
+            output.textContent = number1;
+        } else {
+            number2 += value;
+            output.textContent = number2;
+        }
+        return;
+    }
+
+    if (button.className === 'operator'){
+        if (number1 && number2){
+            result = operate(number1, number2, operator);
+            number1 = result;
+            number2 = '';
+            output.textContent = number1;
+        }
+        operator = value;
+        return;
+    }
+
+    if (button.id === 'calculate'){
+        if(number1 && number2 && operator){
+            result = operate(number1, number2, operator);
+            number1 = result;
+            output.textContent = number1;
+            number2 = '';
+            operator = '';
+            isResultDispalyed = true;
+        }
+    return;
+    }       
+};
