@@ -33,32 +33,39 @@ function calculate (button) {
     }
 
     if (button.className === 'digit'){
-        if (operator === ''){
-            if (output.textContent == '0' && value == '0'){
-                number1 = 0;
-                isBackspacedToZero = false;
-                isResultDisplayed = false;
-                return;
-            }
-            if (isResultDisplayed || isBackspacedToZero){
-                number1 = value;
-                isResultDisplayed = false;
-                isBackspacedToZero = false;
-            } else {
-                number1 += value;
-            }
-            output.textContent = number1;
-        } else if (isBackspacedToZero){
-            number2 = value;
-            output.textContent = number2;
+        if (operator === '') {
+        if (isResultDisplayed || isBackspacedToZero) {
+            number1 = value;
             isResultDisplayed = false;
             isBackspacedToZero = false;
-        } else {            
-            number2 += value;
-            number2 = number2.replace(/^0+(?=\d)/, '');
-            output.textContent = number2;                      
+        } else {
+            number1 += value;
         }
-        return;
+
+        // Удаляем ведущие нули, кроме случая "0." или "0"
+        if (!isNum1Floated) {
+            number1 = number1.replace(/^0+(?=\d)/, '');
+        }
+
+        output.textContent = number1 || '0';
+
+    } else {
+        if (isBackspacedToZero) {
+            number2 = value;
+            isResultDisplayed = false;
+            isBackspacedToZero = false;
+        } else {
+            number2 += value;
+        }
+
+        // Удаляем ведущие нули, кроме случая "0." или "0"
+        if (!isNum2Floated) {
+            number2 = number2.replace(/^0+(?=\d)/, '');
+        }
+
+        output.textContent = number2 || '0';
+    }
+    return;
     }
 
     if (button.className === 'operator'){
