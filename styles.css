@@ -1,48 +1,53 @@
-body {
-    background: linear-gradient(45deg, rgb(153, 153, 153), rgb(56, 56, 56));
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+html {
     height: 100%;
 }
 
-.container {
-    margin-top: 7rem;
-    margin-bottom: 7em;
-    padding: 20px;
+body {   
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background: linear-gradient(45deg, rgb(153, 153, 153), rgb(56, 56, 56));
+    justify-content: center;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.container {    
+    margin-top: 3.5rem;
+    margin-bottom: auto;
+    padding: 10px;
     border-radius: 28px;
     border: 9px solid rgb(46, 46, 46);
-    width: 500px;
+    width: 15.625rem;
     height: auto;
     background: linear-gradient(135deg, #5c5c5c, #2b2a2a);
 }
 
 .output {
-    font-size: 46px;
+    font-size: 2rem;
     font-weight: 700;
     border: 2px solid black;
     border-radius: 5px;
-    padding: 0.1em;
-    margin-bottom: 0.5em;
-    margin-top: 0.8em;
+    padding: 0.1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
     background-color: rgb(214, 214, 214);
 }
 
 .buttonsGrid {
-    margin-bottom: 2em;
+    margin-bottom: 1.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 0.3rem;
 }
 
 .buttonsGrid button {
-    font-size: 34px;
+    font-size: 1.5rem;
     font-weight: 700;
-    width: 7rem;
-    height: 6rem;
+    width: 3.5rem;
+    height: 3rem;
     border-radius: 20%;
     cursor: pointer;
     transition: transform 0.3ms ease;
@@ -65,17 +70,17 @@ body {
 }
 
 .bottomBlock {
-    width: 500px;
+    width: 15.625rem;
     display: flex;
     justify-content: flex-end;
-    gap: 5px;
-    margin-right: 18px;
+    gap: 0.3rem;
+    margin-right: 0.4rem;
 }
 
 #backspace {
     flex: auto;
     border-radius: 20px;
-    margin-left: 18px;
+    margin-left: 0.4rem;
 }
 
 #clear {
