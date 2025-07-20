@@ -1,19 +1,24 @@
+html {
+    height: 100%;
+}
+
 body {
-    background-color: rgb(69, 99, 69);
+    background: linear-gradient(45deg, rgb(153, 153, 153), rgb(56, 56, 56));
     margin: 0;
     padding: 0;
-    height: 100%;
     display: flex;
     justify-content: center;
+    height: 100%;
 }
 
 .container {
-    margin-top: 3rem;
+    margin-top: 7rem;
+    margin-bottom: 7em;
     padding: 20px;
     border-radius: 28px;
-    border: 4px solid black;
+    border: 9px solid rgb(46, 46, 46);
     width: 500px;
-    background-color: #444;
+    background: linear-gradient(135deg, #5c5c5c, #2b2a2a);
 }
 
 .output {
@@ -24,7 +29,7 @@ body {
     padding: 0.1em;
     margin-bottom: 0.5em;
     margin-top: 0.8em;
-    background-color: whitesmoke;
+    background-color: rgb(214, 214, 214);
 }
 
 .buttonsGrid {
@@ -60,4 +65,22 @@ body {
 
 #calculate {
     background-color: #FFCC00;
+}
+
+.bottomBlock {
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-right: 18px;
+}
+
+#backspace {
+    flex: auto;
+    border-radius: 20px;
+    margin-left: 18px;
+}
+
+#clear {
+    color: darkred;
 }
