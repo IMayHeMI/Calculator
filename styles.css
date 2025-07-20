@@ -14,6 +14,7 @@ body {
     border-radius: 28px;
     border: 9px solid rgb(46, 46, 46);
     width: 500px;
+    height: auto;
     background: linear-gradient(135deg, #5c5c5c, #2b2a2a);
 }
 
